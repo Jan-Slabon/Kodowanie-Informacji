@@ -1,10 +1,9 @@
-mod golomb;
 mod Fibbonaci;
+use metropolis_hastings::{continous_ising_hamiltonian, gen_sampled_distribution, general_gibbs_hamiltonian, ising_hamiltonian, metropolis_hastings_continous_single_flip, metropolis_hastings_discrete_single_flip};
+
 use crate::Fibbonaci::{fibbonaci_code, fibbonaci_decode};
 
+mod metropolis_hastings;
 fn main() {
-    let code = fibbonaci_code(34);
-    code.iter().for_each(|x| {print!("{} ", x)});
-    let original = fibbonaci_decode(code);
-    println!("\n{}", original);
+    gen_sampled_distribution(metropolis_hastings_continous_single_flip, general_gibbs_hamiltonian);
 }
